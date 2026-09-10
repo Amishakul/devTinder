@@ -36,6 +36,17 @@ app.get("/user", [(req, res, next) => {
 ]);
 
 
+// another way of writing route handlers
+app.get("/user", (req, res, next) => {
+    console.log("Handling the route user!!!")
+    next()
+});
+
+app.get("/user", (req, res, next) => {
+    console.log("Handling the router user 2!!");
+    res.send("2nd Route Handler")
+});
+
 
 app.listen(7777, () => {
     console.log("Server is successfully listening on port 7777")

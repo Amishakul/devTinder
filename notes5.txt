@@ -1,0 +1,9 @@
+In Express.js, middleware is a function that runs between the incoming request and the final response.
+
+Request comes in → middleware does its work → route handler sends the response back.
+
+Express takes and matches all the routes and goes through middlewares one after the other, till it sends the actual response back.
+
+status code 200: the request and response is ok and successful.
+404: Error ( if something is not found)
+401: Unauthorized

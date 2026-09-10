@@ -113,3 +113,15 @@ app.get("/user", (req, res, next) => {
 ); -> Cannot GET /user because express expects that there can be a another router handler after next, but there is not.
 
 Make how many router handlers you want but at the end response should be sent.
+
+
+
+app.get("/user", (req, res, next) => {
+    console.log("Handling the route user!!!")
+    next();
+});
+
+app.get("/user", (req, res, next) => {
+    console.log("Handling the router user 2!!");
+    res.send("2nd Route Handler")
+}); -> it will print 2nd Router Handler
