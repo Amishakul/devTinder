@@ -60,12 +60,12 @@ app.use("/admin", adminAuth); // importing the adminAuth function from middlewar
 
 app.post("/user/login", (req, res) => {
     res.send("User Logged in sucessfully")
-})
+}) // User auth will not get checked.
 
 
 app.get("/user", userAuth, (req, res) => {
     res.send("User Data Sent");
-});
+}); // User auth is getting checked.
 
 app.get("/admin/getAllData", (req, res) => {
     res.send("User Data Sent")

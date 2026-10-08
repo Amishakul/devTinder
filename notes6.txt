@@ -1,0 +1,74 @@
+command to connect our mongodb cluster to our application using mongoose library/package: npm install mongoose
+
+Database connection established... -> mongoose library has sucessfully established connection with the cluster.
+
+mongodb+srv://amishakulkarnicom_db_user:42BVT0MWh6ROjnJJ@namastenodesample.egs2ewu.mongodb.net/ -> connected with cluster
+
+mongodb+srv://amishakulkarnicom_db_user:42BVT0MWh6ROjnJJ@namastenodesample.egs2ewu.mongodb.net/HelloWorld -> connected with database in that cluster
+
+1. Organization
+2. Cluster
+3. devTinder -> Database name
+4. collection -> Table -> users
+5. Document
+
+Schema -> identity for that collection document, Defining a user, what all things you will store in this user collection like (fields): firstname, lastname, emailid, password, etc. -> all this we will store inside user collection.
+
+So for user collection we will create user Schema.
+
+Most of the mongoose functions, methods, api will return us the promise. so we need to use async await most of the time to resolve them.
+
+
+
+
+
+1. mongoose.Schema
+const userSchema = new mongoose.Schema({
+    name: String,
+    age: Number
+});
+
+- mongoose.Schema → constructor/class-like thing provided by Mongoose
+- new mongoose.Schema(...) → creates a Schema object
+- userSchema → stores that object
+- Why create it? → To create our specific schema/rules for User.
+Simple thought:  
+Schema = rules/structure of our data.
+
+
+
+2. User Model
+const User = mongoose.model("User", userSchema);
+
+- User → Mongoose Model
+- Think of it as a class/template for Users
+- It uses userSchema to know the rules for a User.
+Then:
+const user = new User({
+    name: "Amisha",
+    age: 24
+});
+
+- new User(...) → creates one User object/instance
+- user → represents one actual User
+- user.save() → saves that User to MongoDB.
+⭐ The easiest summary to note down
+Schema → defines the rules/structure.
+
+Model → created from Schema; acts like a User class/template.
+
+
+
+
+new User(...) → creates one actual User object
+                 containing someone's data.
+
+user.save() → saves that User object/document to MongoDB.
+
+And one important thing about your confusion:
+You are not creating an object every time just to access a class's methods.
+In these examples, objects are created because you need a specific thing:
+new mongoose.Schema(...) → creates MY User schema
+new User(...)            → creates ONE actual User
+
+That's the mental model I recommend you use while learning Mongoose.

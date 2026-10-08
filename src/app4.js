@@ -2,18 +2,18 @@ const express = require("express");
 
 const app = express();
 
-app.use("/", (err, req, res, next) => {
-    if (err) {
-        // Log your error
-        res.status(500).send("something went wrong")
-    }
-});
+// app.use("/", (err, req, res, next) => {
+//     if (err) {
+//         // Log your error
+//         res.status(500).send("something went wrong")
+//     }
+// });
 
 app.get("/getUserData", (req, res) => {
     // Logic of DB call and get user data
     
-      // throw new Error("dvbzhjf")
-      // res.send("User Data Sent");
+       // throw new Error("dvbzhjf")
+       // res.send("User Data Sent");
 
     try {
         throw new Error("dvbzhjf");
@@ -30,7 +30,7 @@ app.use("/", (err, req, res, next) => {
         // Log your error
         res.status(500).send("something went wrong")
     }
-}); // "/"" means it matches all your routes. Always keep this towards the end this error function.
+}); // "/" means it matches all your routes. Always keep this towards the end this error function.
 
 
 

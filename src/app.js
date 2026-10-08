@@ -3,6 +3,11 @@ const express = require("express");
 // instance of an 
 // express.js application (creating a server using express process)
 
+// require("express") gives us the Express function, and express() creates an Express application object. We store that application object in app so that we can configure and use our server.
+// Right — you are not explicitly creating an object/instance with new in your code.
+// You are calling the express() function.
+// That function internally creates/returns an Express application object, which gets stored in app.
+
 const app = express();
 
 
