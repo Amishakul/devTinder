@@ -36,7 +36,7 @@ app.post("/signup", async (req, res) => {
 
     // create new instance of our model User, add this database to that model, and then we will save that instance.
 
-    // creating a new user with the above data. Creating a new instance of a user model. (creating a object)
+    // creating a new user with the above data. Creating a new instance of a User model. (creating a object)
 
     // const user = new User(userObj); another way of creating an instance from User model
 
