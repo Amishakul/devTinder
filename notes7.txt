@@ -1,0 +1,12 @@
+We need to pass dynamic data to the api
+
+When we make a post api call, the data entered by the user should go to api and go into the database.
+
+I want to send the JSON data from the user and my server should read that JSON data and push it into the database.
+
+JSON object always needs key-value pair as string. 
+Javascript object takes key as non-string and object as string.
+
+we will get the data from the body of the request api(type it in body of post User api in postman)
+
+I can create instance of the user model from the data received from this api. 

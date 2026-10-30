@@ -4,12 +4,18 @@ const User = require("./models/user");
 // we should first connect to database and then do app.listen. app.listen means you are starting your server, so before listening to any incoming request or starting your server establish the database connection.
 
 // create a server using express
-
 const app = express();
+
+// reading the json object request and converting it into javascript object. This is a middleware.
+
+app.use(express.json());
 
 // creating /signup route/endpoint/api
 
-app.post("/signup", async (req, res) => {
+ app.post("/signup", async (req, res) => {
+    // console.log(req.body); // this is the req which postman has sent us and our server have recived it. express has converted this in object for us to use. Now, i want to read the data which is present at the body of this request api (req).
+
+
     // const userObj = {
     //     firstname : "Amisha",
     //     lastname: "Kulkarni",
@@ -19,16 +25,13 @@ app.post("/signup", async (req, res) => {
 
     // creating a new user with the above data. Creating a new instance of a User model. (creating a object)
 
-    const user = new User({
-        firstName: "Stud",
-        lastName: "not available",
-        emailId: "stud@123.com",
-        password: "stud@123",
-        // _id: "507f1f77bcf86cd799439011",
-    });
+
+    // I can create instance of the user model from the data received from this api. 
+    
+    const user = new User(req.body);
 
     try{
-    await user.save(); // data save on to the database
+    await user.save(); // data save on to the database. A document gets created.
     res.send("User Added successfully!")
     } catch (err) {
         res.status(400).send("Error saving the user:" + err.message);
