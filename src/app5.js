@@ -26,8 +26,8 @@ app.use(express.json());
     // creating a new user with the above data. Creating a new instance of a User model. (creating a object)
 
 
-    // I can create instance of the user model from the data received from this api. 
-    
+    // I can create instance of the user model from the data received from this api. that is from this api request body, from the postman. 
+
     const user = new User(req.body);
 
     try{
