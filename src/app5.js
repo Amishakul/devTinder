@@ -43,7 +43,46 @@ app.use(express.json());
 
     // const user = new User(userObj); another way of creating an instance from User model
 
+});
 
+
+
+// Get user by email.
+
+app.get("/user", async (req, res) => {
+    // get the emailid from the user which the user wants from the body of the api request done by the user and sent to our server.
+    const userEmail = req.body.emailId; // this email id the user wants and will request to us so we will get this email id from the api get /user request body.
+
+    try {
+        const user = await User.findOne({emailId: userEmail});
+        // it return only one object (collection) if there are two duplicate entries present in the database. It returns the oldest document present among duplicate documents.
+        if (!user) {
+            res.status(404).send("User not found")
+        } else {
+            res.send(user); 
+        }
+
+
+        //const users = await User.find({emailId: userEmail}) // It sends back the response as array of objects.
+        // if(users.length === 0) {
+        //     res.status(404).send("User not found");
+        // } else {
+        //     res.send(users) // send the response (data) back to the user from the database.
+        // }
+    } catch (err) {
+        res.status(400).send("Something went wrong");
+    }
+});
+
+
+// Feed API - GET /feed - get all the users from the database
+app.get("/feed", async(req, res) => {
+    try {
+    const users = await User.find({}); // it returns all the documents.
+    res.send(users);
+    } catch (err) {
+        res.respond(400).send("Something went wrong")
+    }
 
 });
 
