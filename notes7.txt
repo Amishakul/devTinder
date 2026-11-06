@@ -15,4 +15,4 @@ We need http methods because the website/frontend is connected through server di
 
 Any data which is not present in the schema will not get updated in the database, it will get ignored by the api.
 
-If we don't pass the options parameter so it will bydefault display before update database object.
+If we don't pass the options parameter in update query of mongo database so it will by default display before update database object.
