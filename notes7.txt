@@ -9,4 +9,10 @@ Javascript object takes key as non-string and object as string.
 
 we will get the data from the body of the request api(type it in body of post User api in postman)
 
-I can create instance of the user model from the data received from this api. 
+I can create instance of the user model from the data received from this api.
+
+We need http methods because the website/frontend is connected through server directly not to the database.
+
+Any data which is not present in the schema will not get updated in the database, it will get ignored by the api.
+
+If we don't pass the options parameter so it will bydefault display before update database object.
